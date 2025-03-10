@@ -2,7 +2,7 @@
 ## Project Plan
 For my final project, I will be creating a rhythm annotation program. After a starting countdown based on the BPM (beats per minute) the user inputs, the user will click a key, probably the space bar, a number of times, spacing the clicks as long or short as they want to. This program will take these clicks and, using the pre-confirmed tempo, annotate them into readable sheet music (showing just the rhythm/note length of the hits). I may also add a feature so users can edit this sheet music by inputting the notes they want after creating the rhythm, which will again change the sheet music to reflect these changes in the key/clef the user chooses.
 ### Possible Output Designs
-![rhythm sheet music - different note lengths on a single line, denotating only the rhythm of the piece](https://github.com/user-attachments/assets/90ff8895-cf10-4e27-a2f9-89638f202acf)
+![rhythm sheet music - different note lengths on a single line, denotating only the rhythm of the piece](https://github.com/user-attachments/assets/1a4f04c4-2cbd-481a-90b1-81ef48c3422b)
 ![sheet music for a melody - notes of different lengths and locations on a five-line staff, denotating both the rhythm and tonal notes of the piece](https://github.com/user-attachments/assets/6a1f1cef-0758-432c-91fd-ac71b59fb3db)
 
 _(the latter with or without the letters on top of each note)_
