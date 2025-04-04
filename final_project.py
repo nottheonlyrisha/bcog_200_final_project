@@ -12,6 +12,8 @@ def screen1(): #tempo screen
         tempo = tempo_entry.get()
         if tempo == "":
             messagebox.showinfo("error", "please enter a tempo")
+        elif int(tempo) <= 59 or int(tempo) >= 241:
+            messagebox.showinfo("error", "unsupported tempo: please enter a tempo between 60-240 bpm")
         elif int(tempo)/4 != int(tempo)//4:
             messagebox.showinfo("error", "improper tempo: please enter a tempo divisible by 4")
         else:
