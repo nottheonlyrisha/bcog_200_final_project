@@ -2,9 +2,68 @@ import tkinter as tk
 from tkinter import messagebox #error messages!!
 import time
 
-class RhythmMaker:
-    def __init__(self):
+class RhythmRecorder:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Rhythm Recorder")
+
+        self.setup_screen()
+    
+    def setup_screen(self):
+        self.main_frame = tk.Frame(self.root)
+        self.main_frame.pack(padx=10, pady=10)
+
+        #buttons frame
+        self.buttons_frame = tk.Frame(self.main_frame)
+        self.buttons_frame.pack()
+
+        #sliders frame
+        self.sliders_frame = tk.Frame(self.main_frame)
+        self.sliders_frame.pack()
+
+        #submit button frame
+        self.submit_frame = tk.Frame(self.main_frame)
+        self.submit_frame.pack()
+
+        #tempo selection
+        tempo_label = tk.Label(self.buttons_frame, text="tempo")
+        tempo_label.pack()
         
+        self.slow = tk.Button(self.buttons_frame, text="slow", command=lambda: self.tempo_select("slow", self.slow))
+        self.moderate = tk.Button(self.buttons_frame, text="moderate", command=lambda: self.tempo_select("moderate", self.moderate))
+        self.fast = tk.Button(self.buttons_frame, text="fast", command=lambda: self.tempo_select("fast", self.fast))
+        self.slow.pack(side="left")
+        self.moderate.pack(side="left")
+        self.fast.pack(side="left")
+
+        #tempo
+
+        #time signature selection
+        self.top_ts_slider = tk.Scale(self.sliders_frame, from_=2, to=8, orient=tk.HORIZONTAL, label="top:", activebackground="yellow")
+        self.bottom_ts_slider = tk.Scale(self.sliders_frame, from_=2, to=8, orient=tk.HORIZONTAL, label="bottom:", activebackground="yellow")
+        self.top_ts_slider.pack()
+        self.bottom_ts_slider.pack()
+
+        #countoff selection
+        self.countdown_slider = tk.Scale(self.sliders_frame, from_=2, to=8, orient=tk.HORIZONTAL, label="countoff (beats):", activebackground="yellow")
+        self.countdown_slider.pack()
+
+        #submit button
+        self.submit = tk.Button(self.submit_frame, text="submit", command=self.submit)
+        self.submit.pack()
+
+    def tempo_select(self, tempo, button):
+        self.slow.config(bg="grey94", state="normal")
+        self.moderate.config(bg="grey94", state="normal")
+        self.fast.config(bg="grey94", state="normal")
+        button.config(bg="yellow", state="disabled")
+        print(tempo)
+        return tempo
+    
+    def submit(self):
+        ts = f"{self.top_ts_slider.get()}/{self.bottom_ts_slider.get()}"
+        print(ts)
+      
 
 def screen1(): #tempo screen
     main_window = tk.Tk()
@@ -73,9 +132,13 @@ def screen4(tempo, time_signature, countoff):
 
 
 def main():
-    screen1()
-    screen2()
-    screen3()
+    root = tk.Tk()
+    rhythm_recorder = RhythmRecorder(root=root)
+    rhythm_recorder.root.mainloop()
+
+    # screen1()
+    # screen2()
+    # screen3()
 
 if __name__ == "__main__":
     main()
