@@ -1,5 +1,5 @@
 # Example Usage
-type `60` into the `tempo` box and click submit
+select `moderate` from the `tempo` selection buttons
 
 slide both the top and the bottom sliders to `4` and click submit
 
