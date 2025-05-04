@@ -11,7 +11,6 @@ class RhythmRecorder:
         self.setup_info = None
 
         self.setup_screen()
-        self.countoff_screen()
     
     def setup_screen(self):
         self.main_frame = tk.Frame(self.root)
@@ -31,30 +30,30 @@ class RhythmRecorder:
 
         #tempo selection
         tempo_label = tk.Label(self.buttons_frame, text="tempo")
-        tempo_label.pack()
+        tempo_label.grid(row=0, column=2)
         
         self.slow = tk.Button(self.buttons_frame, text="slow", command=lambda: self.tempo_select("slow", self.slow))
         self.moderate = tk.Button(self.buttons_frame, text="moderate", command=lambda: self.tempo_select("moderate", self.moderate))
         self.fast = tk.Button(self.buttons_frame, text="fast", command=lambda: self.tempo_select("fast", self.fast))
-        self.slow.pack(side="left")
-        self.moderate.pack(side="left")
-        self.fast.pack(side="left")
-
-        #tempo
+        self.slow.grid(row=1, column=1)
+        self.moderate.grid(row=1, column=2)
+        self.fast.grid(row=1, column=3)
 
         #time signature selection
+        ts_label = tk.Label(self.buttons_frame, text="time signature")
         self.top_ts_slider = tk.Scale(self.sliders_frame, from_=2, to=4, orient=tk.HORIZONTAL, label="top:", activebackground="yellow")
-        self.bottom_ts_slider = tk.Scale(self.sliders_frame, from_=4, to=8, orient=tk.HORIZONTAL, label="bottom:", activebackground="yellow")
-        self.top_ts_slider.pack()
-        self.bottom_ts_slider.pack()
+        ts_bottom = tk.Label(self.buttons_frame, text="4")
+        ts_label.grid(row=2, column=2)
+        self.top_ts_slider.grid(row=2)
+        ts_bottom.grid(row=10, column=2)
 
         #countoff selection
         self.countdown_slider = tk.Scale(self.sliders_frame, from_=2, to=8, orient=tk.HORIZONTAL, label="countoff (beats):", activebackground="yellow")
-        self.countdown_slider.pack()
+        self.countdown_slider.grid(row=5)
 
         #submit button
         self.submit = tk.Button(self.submit_frame, text="submit", command=self.submit)
-        self.submit.pack()
+        self.submit.grid(row=6)
 
     def tempo_select(self, tempo, button):
         self.slow.config(bg="grey94", state="normal")
@@ -68,22 +67,26 @@ class RhythmRecorder:
         ts = f"{self.top_ts_slider.get()}/{self.bottom_ts_slider.get()}"
         countoff = f"{self.countdown_slider.get()}"
         valid_ts = ["2/4", "3/4", "4/4", "6/8"]
-        if ts not in valid_ts:
-            messagebox.showinfo("error", "invalid time signature - please enter a standard time signature")
+        done = True
         if self.tempo is None:
             messagebox.showinfo("error", "please select a tempo")
-        self.setup_info = self.tempo, ts, countoff
+            done = False
+        if ts not in valid_ts:
+            messagebox.showinfo("error", "invalid time signature - please enter a standard time signature")
+            done = False
+        if done == True:
+            self.setup_info = self.tempo, ts, countoff
+            self.main_frame.destroy()
+            self.countoff_screen()
         print(self.setup_info)
         return self.setup_info
       
     def countoff_screen(self):
         self.flash_frame = tk.Frame(self.root)
         self.flash_frame.pack(padx=10, pady=10)
-
         self.flash = self.root.configure(bg='darkgrey')
         self.regular = self.root.configure(bg='white')
 
-        self.flash
 
 def main():
     root = tk.Tk()
