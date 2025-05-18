@@ -24,7 +24,7 @@ class RhythmRecorder(tk.Tk):
         """
         Displays screen with instructions, tempo select buttons, and countoff select slider.
         """
-        for widget in self.winfo_children():
+        for widget in self.winfo_children():    # looked up how to destroy old screen and create new screen every time and found this on stackoverflow
             widget.destroy()           # new screen every time
 
         tk.Label(self, text="Instructions", font=("Georgia", 16), bg="white").grid(row=0, column=0, columnspan=4)
@@ -130,7 +130,7 @@ class RhythmRecorder(tk.Tk):
         self.canvas.pack()
         self.rect = self.canvas.create_rectangle(50, 50, 150, 150, fill="gray")
 
-        # get taps
+        # get taps - looked up on python wiki
         self.bind("<space>", self.record_taps)
 
         self.start_time = time.time()
