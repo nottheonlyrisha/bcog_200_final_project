@@ -1,4 +1,5 @@
 # Tests for functionality
+**NOTE: Be sure to make a folder called "images" _within_ whatever folder the final_project.py is saved in!**
 ## Test 1
 select `moderate` from the `tempo` selection buttons
 
