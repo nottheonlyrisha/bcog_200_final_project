@@ -18,14 +18,15 @@ On this screen, a small box will flash whenever the user taps the space bar. The
 This screen might include a progress bar.
 ### Final Rhythm Screen
 This screen will display the final rhythm. If I can find a way to make the final rhythm into a downloadable PNG or other image, there will be a button to download the final sheet music.
+
+### Function Plans
+#### Function 1: flash screen
+This function will take the tempo selected and change the color of the screen in time with the selected millisecond tempo.
+#### Function 2: in-between times recorder
+This function will determine how long the spaces between clicks of a key are, preferably in seconds, and record and store the times as individual note lengths.
+#### Function 3: time to note converter
+This function will be passed the times of each individual note from the previous function, and by comparing the times to the BPM selected, convert the clicks to their corresponding note lengths and store them as such (ex. `note1 = half_note`)
+#### and many more!
+
 ## Uses
 This program could be used to determine notation for a possible song, drumline, or assist in arranging music. It could also be used for fun!
-
-## Function Plans
-### Function 1: flash screen
-This function will take the tempo selected and change the color of the screen in time with the selected millisecond tempo.
-### Function 2: in-between times recorder
-This function will determine how long the spaces between clicks of a key are, preferably in seconds, and record and store the times as individual note lengths.
-### Function 3: time to note converter
-This function will be passed the times of each individual note from the previous function, and by comparing the times to the BPM selected, convert the clicks to their corresponding note lengths and store them as such (ex. `note1 = half_note`)
-### and many more!
