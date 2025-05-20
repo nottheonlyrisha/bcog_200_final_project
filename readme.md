@@ -8,6 +8,7 @@ For my final project, I will be creating a rhythm annotation program. After a st
 This program can be used to create notation for rhythms that a user taps out. Based on a selected tempo, or speed (which determines the lengths of notes used), the tapped rhythms will be translated into visible sheet music.
 ## The Code
 This program will be contained in a class, like a GUI, and output different Tkinter screens correcponding to and recording user selection and interactions.
+**NOTE: please make sure PIL (pillow/Python Image Library) is installed and that you have moved all four images to a folder called "images" _within_ whatever folder the final_project.py is saved in _before_ running this code!!**
 ### Selection Screen
 This screen includes three tempo options as buttons, and a slider to select how many beats are in the countoff (which ranges from 2 to 8 beats).
 ### Countoff Screen
